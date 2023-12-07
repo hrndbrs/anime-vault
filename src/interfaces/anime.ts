@@ -10,3 +10,8 @@ export interface AnimeProp {
 	score: string;
 	from: string;
 }
+
+export interface AnimeCardProp {
+	anime: AnimeProp;
+	index: number;
+}
