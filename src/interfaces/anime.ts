@@ -8,4 +8,5 @@ export interface AnimeProp {
 	episodes: number;
 	episodes_aired: number;
 	score: string;
+	from: string;
 }
