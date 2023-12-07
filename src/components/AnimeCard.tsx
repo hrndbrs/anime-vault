@@ -1,9 +1,25 @@
 import Image from "next/image";
-import { AnimeProp } from "@/interfaces/anime";
+import { MotionDiv } from "./MotionComponents";
+import { AnimeCardProp } from "@/interfaces/anime";
 
-export default function AnimeCard({ anime }: { anime: AnimeProp }) {
+export default function AnimeCard({ anime, index }: AnimeCardProp) {
+	const variants = {
+		hidden: { opacity: 0 },
+		visible: { opacity: 1 },
+	};
 	return (
-		<div className="max-w-sm rounded relative w-full">
+		<MotionDiv
+			variants={variants}
+			initial="hidden"
+			animate="visible"
+			transition={{
+				delay: index * 0.2,
+				ease: "easeInOut",
+				duration: 0.3,
+			}}
+			viewport={{ amount: 0 }}
+			className="max-w-sm rounded relative w-full"
+		>
 			<div className="relative w-full h-[37dvh]">
 				<Image
 					src={anime.from + anime.image.original}
@@ -48,6 +64,6 @@ export default function AnimeCard({ anime }: { anime: AnimeProp }) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</MotionDiv>
 	);
 }

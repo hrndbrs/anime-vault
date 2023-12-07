@@ -1,4 +1,5 @@
 "use server";
+import AnimeCard from "@/components/AnimeCard";
 import { AnimeProp } from "@/interfaces/anime";
 
 const BASE_URL = "https://shikimori.one";
@@ -11,6 +12,8 @@ export default async function fetchAnime(page: number) {
 	data.forEach((anime: AnimeProp) => {
 		anime.from = BASE_URL;
 	});
-	console.log(data);
-	return data;
+
+	return data.map((anime: AnimeProp, idx: number) => (
+		<AnimeCard key={anime.id} anime={anime} index={idx} />
+	));
 }
