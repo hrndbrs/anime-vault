@@ -25,7 +25,7 @@ export default function AnimeCard({ anime, index }: AnimeCardProp) {
 					src={anime.from + anime.image.original}
 					alt={anime.name}
 					fill
-					className="rounded-xl"
+					className="rounded-xl object-cover"
 				/>
 			</div>
 			<div className="py-4 flex flex-col gap-3">
